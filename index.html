@@ -842,6 +842,19 @@
         background: #f2ead9;
       }
 
+      /* Career + Career Development photos: same bigger, uncropped treatment */
+      .section-photo--career,
+      .section-photo--career-development {
+        max-width: 1040px;
+        aspect-ratio: 4 / 3;
+      }
+
+      .section-photo--career img,
+      .section-photo--career-development img {
+        object-fit: contain;
+        background: #f2ead9;
+      }
+
       .section-photo.is-empty {
         border-color: var(--paper);
         outline-style: dashed;
@@ -1991,7 +2004,7 @@
           roles, coursework, and credentials lives on LinkedIn, so this just
           highlights current focus areas and routes visitors there.
         -->
-        <figure class="section-photo reveal" aria-label="Photo placeholder" data-caption="on the job">
+        <figure class="section-photo section-photo--career reveal" aria-label="Photo placeholder" data-caption="on the job">
           <img
             src="assets/images/career.jpg"
             alt=""
@@ -2054,7 +2067,7 @@
           folder in the repo, then copy a .cert-card block and point the
           "View credential" link at that file (or an issuer verification URL).
         -->
-        <figure class="section-photo reveal" aria-label="Photo placeholder" data-caption="leveling up">
+        <figure class="section-photo section-photo--career-development reveal" aria-label="Photo placeholder" data-caption="leveling up">
           <img
             src="assets/images/career-development.jpg"
             alt=""
