@@ -51,6 +51,8 @@
         --pink-soft: #f8e6ed;
         --blush: #f1cbba;
         --butter: #f6d365;
+        --fuchsia: #c22a6b;
+        --terracotta: #e2672a;
         --cream: #fffaf0;
         --serif: "Playfair Display", Georgia, serif;
         --sans: "DM Sans", Arial, sans-serif;
@@ -126,6 +128,11 @@
         color: var(--navy);
       }
 
+      .block-section.is-sunset {
+        background: linear-gradient(135deg, var(--fuchsia) 0%, var(--terracotta) 100%);
+        color: var(--cream);
+      }
+
       .block-section.is-ink {
         background: var(--navy);
         color: var(--cream);
@@ -171,6 +178,10 @@
         color: #9c1f58;
       }
 
+      .block-section.is-sunset .display-heading .line-accent {
+        color: var(--gold-soft);
+      }
+
       /* Handwritten, personal accent — used sparingly for warmth */
       .script-text {
         font-family: var(--script);
@@ -189,6 +200,16 @@
       .block-section.is-rust + .squiggle-wrap,
       .squiggle-wrap.is-rust {
         color: var(--red);
+      }
+
+      .block-section.is-pink + .squiggle-wrap,
+      .squiggle-wrap.is-pink {
+        color: var(--pink-soft);
+      }
+
+      .block-section.is-sunset + .squiggle-wrap,
+      .squiggle-wrap.is-sunset {
+        color: var(--terracotta);
       }
 
       .squiggle-wrap {
@@ -332,7 +353,7 @@
         position: relative;
         z-index: 1;
         margin: 0;
-        padding-block: 34px;
+        padding-block: 48px;
         font-family: var(--display);
         font-weight: 900;
         line-height: 1;
@@ -342,7 +363,7 @@
 
       .name-line {
         display: block;
-        font-size: clamp(60px, 12.6vw, 158px);
+        font-size: clamp(72px, 15vw, 196px);
       }
 
       .name-line--top {
@@ -1351,7 +1372,7 @@
         }
 
         .name-line {
-          font-size: clamp(50px, 17vw, 100px);
+          font-size: clamp(58px, 19vw, 118px);
         }
 
         .name-hero-photo-wrap {
@@ -1680,7 +1701,7 @@
           </div>
         </section>
 
-        <section class="block-section is-rust reveal" id="about" aria-labelledby="about-title">
+        <section class="block-section is-sunset reveal" id="about" aria-labelledby="about-title">
           <div class="block-inner about-section">
           <div>
             <div class="section-label">
@@ -1739,7 +1760,7 @@
           </figcaption>
         </figure>
 
-        <div class="squiggle-wrap is-rust" aria-hidden="true">
+        <div class="squiggle-wrap is-sunset" aria-hidden="true">
           <svg class="squiggle-divider" viewBox="0 0 1200 24" preserveAspectRatio="none">
             <path d="M0,12 Q30,2 60,12 Q90,22 120,12 Q150,2 180,12 Q210,22 240,12 Q270,2 300,12 Q330,22 360,12 Q390,2 420,12 Q450,22 480,12 Q510,2 540,12 Q570,22 600,12 Q630,2 660,12 Q690,22 720,12 Q750,2 780,12 Q810,22 840,12 Q870,2 900,12 Q930,22 960,12 Q990,2 1020,12 Q1050,22 1080,12 Q1110,2 1140,12 Q1170,22 1200,12" fill="none" stroke="currentColor" stroke-width="4"/>
           </svg>
