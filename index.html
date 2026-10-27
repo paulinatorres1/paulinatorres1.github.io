@@ -831,6 +831,17 @@
         background: #f2ead9;
       }
 
+      /* Races photo: same bigger, uncropped treatment as the writing photo */
+      .section-photo--races {
+        max-width: 1040px;
+        aspect-ratio: 4 / 3;
+      }
+
+      .section-photo--races img {
+        object-fit: contain;
+        background: #f2ead9;
+      }
+
       .section-photo.is-empty {
         border-color: var(--paper);
         outline-style: dashed;
@@ -1072,6 +1083,79 @@
       .cert-badge svg {
         width: 18px;
         height: 18px;
+      }
+
+      /* Brand-flavored badges for real certifications (no external logo
+         images needed — simple CSS shapes/initials per issuer) */
+      .cert-badge--square {
+        border-radius: 11px;
+      }
+
+      .cert-badge--alteryx {
+        background: #1b1b1b;
+        color: #fff;
+        font-family: var(--serif);
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .cert-badge--irs {
+        background: var(--navy);
+        color: var(--gold-soft);
+        font-family: var(--mono);
+        font-size: 9.5px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .cert-badge--forage {
+        background: #2a3fd6;
+        color: #fff;
+        font-family: var(--serif);
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .cert-badge--microsoft {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2px;
+        padding: 7px;
+        background: #fff;
+        border: 1px solid var(--line);
+      }
+
+      .cert-badge--microsoft span {
+        display: block;
+      }
+
+      .cert-badge--microsoft span:nth-child(1) {
+        background: #f25022;
+      }
+
+      .cert-badge--microsoft span:nth-child(2) {
+        background: #7fba00;
+      }
+
+      .cert-badge--microsoft span:nth-child(3) {
+        background: #00a4ef;
+      }
+
+      .cert-badge--microsoft span:nth-child(4) {
+        background: #ffb900;
+      }
+
+      .cert-note {
+        margin: -8px 0 16px;
+        color: var(--muted);
+        font-size: 11.5px;
+        line-height: 1.6;
+      }
+
+      .cert-note strong {
+        color: var(--navy-dark);
+        font-weight: 600;
       }
 
       .cert-card h3 {
@@ -2007,24 +2091,32 @@
 
           <div class="certifications-grid">
             <div class="cert-card">
-              <div class="cert-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2 14.5 8.5 21 9l-5 4.5L17.5 20 12 16.3 6.5 20 8 13.5 3 9l6.5-.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h3>Example certification</h3>
-              <p class="cert-meta">Issuing organization · 2025</p>
-              <a class="text-link" href="#">View credential <span aria-hidden="true">↗</span></a>
+              <div class="cert-badge cert-badge--square cert-badge--alteryx" aria-hidden="true">a</div>
+              <h3>Alteryx Designer Core Certification</h3>
+              <p class="cert-meta">Alteryx · Issued Mar 2026</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card">
-              <div class="cert-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2 14.5 8.5 21 9l-5 4.5L17.5 20 12 16.3 6.5 20 8 13.5 3 9l6.5-.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
-                </svg>
+              <div class="cert-badge cert-badge--irs" aria-hidden="true">IRS</div>
+              <h3>VITA/TCE Certification</h3>
+              <p class="cert-meta">Internal Revenue Service · Issued Feb 2026</p>
+              <p class="cert-note"><strong>Skills:</strong> Tax Preparation</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="cert-card">
+              <div class="cert-badge cert-badge--forage" aria-hidden="true">F</div>
+              <h3>PwC US – Tax Job Simulation</h3>
+              <p class="cert-meta">Forage · Issued Feb 2026</p>
+              <p class="cert-note"><strong>Credential ID:</strong> wmyMqBsGFivYbMB87</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="cert-card">
+              <div class="cert-badge cert-badge--square cert-badge--microsoft" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
               </div>
-              <h3>Example certification</h3>
-              <p class="cert-meta">Issuing organization · 2024</p>
-              <a class="text-link" href="#">View credential <span aria-hidden="true">↗</span></a>
+              <h3>Microsoft Office Specialist: Excel Expert (Excel 2019)</h3>
+              <p class="cert-meta">Microsoft · Issued Oct 2025 · Expires Oct 2030</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card is-placeholder">
               <span class="cert-plus" aria-hidden="true">+</span>
@@ -2069,16 +2161,16 @@
 
           <div class="races-stats">
             <div class="stat">
-              <strong>—</strong>
+              <strong>6</strong>
               <span>Races completed</span>
             </div>
             <div class="stat">
-              <strong>—</strong>
+              <strong>70.3</strong>
               <span>Favorite distance</span>
             </div>
             <div class="stat">
-              <strong>—</strong>
-              <span>Personal best</span>
+              <strong>2nd</strong>
+              <span>Women's overall, El Paredón 70.3</span>
             </div>
           </div>
 
@@ -2090,25 +2182,57 @@
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
-                Example 10K
-                <span class="race-location">City, State</span>
+                5150 Salinas
+                <span class="race-location">Salinas, Ecuador</span>
               </span>
-              <span data-label="Date" role="cell">Month 2025</span>
-              <span data-label="Distance" role="cell">10K</span>
+              <span data-label="Date" role="cell">May 2025</span>
+              <span data-label="Distance" role="cell">Olympic</span>
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
-                Example half marathon
-                <span class="race-location">City, State</span>
+                Medio Maratón Internacional de Cobán
+                <span class="race-location">Cobán, Guatemala</span>
               </span>
-              <span data-label="Date" role="cell">Month 2024</span>
+              <span data-label="Date" role="cell">May 2025</span>
+              <span data-label="Distance" role="cell">21K</span>
+            </div>
+            <div class="race-row" role="row">
+              <span class="race-name" role="cell">
+                Chicago Half Marathon
+                <span class="race-location">Chicago, Illinois</span>
+              </span>
+              <span data-label="Date" role="cell">September 2025</span>
               <span data-label="Distance" role="cell">13.1 mi</span>
+            </div>
+            <div class="race-row" role="row">
+              <span class="race-name" role="cell">
+                Ironman 70.3 Texas
+                <span class="race-location">Galveston, Texas</span>
+              </span>
+              <span data-label="Date" role="cell">March 2026</span>
+              <span data-label="Distance" role="cell">70.3</span>
+            </div>
+            <div class="race-row" role="row">
+              <span class="race-name" role="cell">
+                70.3 El Paredón
+                <span class="race-location">Sipacate, Guatemala</span>
+              </span>
+              <span data-label="Date" role="cell">July 2026</span>
+              <span data-label="Distance" role="cell">70.3</span>
+            </div>
+            <div class="race-row" role="row">
+              <span class="race-name" role="cell">
+                Marine Corps Marathon
+                <span class="race-location">Washington, D.C.</span>
+              </span>
+              <span data-label="Date" role="cell">October 2026</span>
+              <span data-label="Distance" role="cell">26.2 mi</span>
             </div>
           </div>
         </section>
 
         <!-- WRITING / SUBSTACK — swap the status chip and link once it's live -->
-        <figure class="section-photo reveal" aria-label="Photo placeholder" data-caption="still running">
+        <figure class="section-photo section-photo--races reveal" aria-label="Photo placeholder" data-caption="still running">
           <img
             src="assets/images/races.jpg"
             alt=""
