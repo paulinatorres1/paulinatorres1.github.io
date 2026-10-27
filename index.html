@@ -818,6 +818,19 @@
         object-fit: cover;
       }
 
+      /* Writing photo: bigger frame + object-fit: contain so the whole
+         photo shows (no cropping), instead of the wide cover-crop banner
+         used by the other between-section placeholders. */
+      .section-photo--writing {
+        max-width: 1040px;
+        aspect-ratio: 4 / 3;
+      }
+
+      .section-photo--writing img {
+        object-fit: contain;
+        background: #f2ead9;
+      }
+
       .section-photo.is-empty {
         border-color: var(--paper);
         outline-style: dashed;
@@ -2136,7 +2149,7 @@
           </div>
         </section>
 
-        <figure class="section-photo reveal" aria-label="Photo placeholder" data-caption="words &amp; coffee">
+        <figure class="section-photo section-photo--writing reveal" aria-label="Photo placeholder" data-caption="words &amp; coffee">
           <img
             src="assets/images/writing.jpg"
             alt=""
