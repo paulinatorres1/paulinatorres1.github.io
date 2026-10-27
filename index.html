@@ -1120,24 +1120,65 @@
 
       /* ---- Races ---- */
       .races-section {
-        padding-block: 77px 86px;
+        padding: 70px 44px 86px;
+        background: linear-gradient(160deg, #fdeee3 0%, var(--pink-soft) 55%, #fbe1d5 100%);
+        border-top: none;
+        border-radius: 26px;
+      }
+
+      /* Playful checkered "finish line" strip above the race stats */
+      .finish-line-strip {
+        width: 100%;
+        max-width: 220px;
+        height: 12px;
+        margin-top: 22px;
+        background-image: repeating-linear-gradient(
+            45deg,
+            var(--navy) 0 10px,
+            transparent 10px 20px
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent 0 10px,
+            var(--cream) 10px 20px
+          );
+        background-size: 20px 20px;
+        border: 2px solid var(--navy);
+        border-radius: 3px;
       }
 
       .races-stats {
         display: flex;
         flex-wrap: wrap;
-        gap: 34px;
+        gap: 18px;
         margin-top: 42px;
         margin-bottom: 8px;
       }
 
       .races-stats .stat {
-        min-width: 110px;
+        min-width: 130px;
+        padding: 16px 20px 18px;
+        background: var(--pink-soft);
+        border-radius: 18px;
+        box-shadow: 0 6px 0 rgba(42, 24, 16, 0.08);
+        transition: transform 160ms ease;
+      }
+
+      .races-stats .stat:hover {
+        transform: translateY(-4px) rotate(-1deg);
+      }
+
+      .races-stats .stat:nth-child(2) {
+        background: var(--gold-soft);
+      }
+
+      .races-stats .stat:nth-child(3) {
+        background: #fbe1d5;
       }
 
       .races-aside {
         margin: 10px 0 0;
-        color: var(--red);
+        color: var(--fuchsia);
         font-size: 24px;
       }
 
@@ -1155,7 +1196,7 @@
       }
 
       .races-stats .stat:nth-child(3) strong {
-        color: var(--pink);
+        color: var(--terracotta);
       }
 
       .races-stats .stat span {
@@ -1168,28 +1209,48 @@
 
       .races-table {
         display: grid;
-        gap: 1px;
+        gap: 6px;
         margin-top: 24px;
-        background: var(--line);
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
       }
 
       .races-table .race-row {
         display: grid;
-        grid-template-columns: 1.6fr 0.9fr 0.8fr 0.8fr;
+        grid-template-columns: 1.6fr 0.9fr 0.8fr;
         align-items: center;
         gap: 16px;
-        padding: 18px 4px;
+        padding: 18px 20px;
         background: var(--paper);
+        border-radius: 14px;
       }
 
       .races-table .race-row.is-head {
+        padding-inline: 20px;
         color: var(--muted);
         font-family: var(--mono);
         font-size: 10px;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+      }
+
+      /* Alternate colorful lanes + a playful accent bar, like race bibs */
+      .races-table .race-row:not(.is-head) {
+        border-left: 6px solid var(--fuchsia);
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .races-table .race-row:not(.is-head):hover {
+        transform: translateX(4px);
+        box-shadow: -4px 4px 0 rgba(42, 24, 16, 0.07);
+      }
+
+      .races-table .race-row:not(.is-head):nth-child(odd) {
+        background: var(--pink-soft);
+        border-left-color: var(--fuchsia);
+      }
+
+      .races-table .race-row:not(.is-head):nth-child(even) {
+        background: #fbe1d5;
+        border-left-color: var(--terracotta);
       }
 
       .race-row .race-name {
@@ -1212,6 +1273,24 @@
         font-family: var(--mono);
         font-size: 12.5px;
         color: #4a4238;
+      }
+
+      /* Distance becomes a fun colored "medal" pill, tinted to match its lane */
+      .race-row span[data-label="Distance"] {
+        display: inline-block;
+        padding: 4px 13px;
+        color: var(--cream);
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        border-radius: 999px;
+      }
+
+      .races-table .race-row:nth-child(odd) span[data-label="Distance"] {
+        background: var(--fuchsia);
+      }
+
+      .races-table .race-row:nth-child(even) span[data-label="Distance"] {
+        background: var(--terracotta);
       }
 
       /* ---- Writing / Substack ---- */
@@ -1411,6 +1490,11 @@
 
         .profile-card {
           max-width: 480px;
+        }
+
+        .races-section {
+          padding-inline: 20px;
+          border-radius: 18px;
         }
 
         .races-table .race-row {
@@ -1968,6 +2052,7 @@
           </div>
           <h2 id="races-title">Races<br>I've run.</h2>
           <p class="script-text races-aside">spreadsheets by day, start lines by weekend</p>
+          <div class="finish-line-strip" aria-hidden="true"></div>
 
           <div class="races-stats">
             <div class="stat">
@@ -1989,7 +2074,6 @@
               <span role="columnheader">Race</span>
               <span role="columnheader">Date</span>
               <span role="columnheader">Distance</span>
-              <span role="columnheader">Time</span>
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
@@ -1998,7 +2082,6 @@
               </span>
               <span data-label="Date" role="cell">Month 2025</span>
               <span data-label="Distance" role="cell">10K</span>
-              <span data-label="Time" role="cell">00:00:00</span>
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
@@ -2007,7 +2090,6 @@
               </span>
               <span data-label="Date" role="cell">Month 2024</span>
               <span data-label="Distance" role="cell">13.1 mi</span>
-              <span data-label="Time" role="cell">00:00:00</span>
             </div>
           </div>
         </section>

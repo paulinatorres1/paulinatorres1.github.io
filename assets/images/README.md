@@ -27,6 +27,6 @@ Tips:
   (they display in a wide banner). `identity-left.jpg` and
   `identity-right.jpg` fill portrait (3:4) frames, so an upright or
   centered photo works best there.
-- The top of the page uses a decorative "P" monogram medallion (not a
-  photo), so there's no upload slot for a hero photo anymore.
+- The top of the page uses a decorative illustration (not a photo), so
+  there's no upload slot for a hero photo.
 - Keep file sizes reasonable (under ~500KB each) so the page stays fast.
