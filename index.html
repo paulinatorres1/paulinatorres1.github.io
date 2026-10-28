@@ -293,6 +293,42 @@
         color: #fffdf7;
       }
 
+      .lang-switch {
+        display: flex;
+        flex: 0 0 auto;
+        align-items: center;
+        gap: 4px;
+        margin-left: 8px;
+        padding-left: 8px;
+        border-left: 1px solid var(--line);
+      }
+
+      .lang-btn {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        background: none;
+        font-size: 15px;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.45;
+        transition: opacity 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+
+      .lang-btn:hover {
+        opacity: 0.8;
+      }
+
+      .lang-btn.is-active {
+        opacity: 1;
+        border-color: #a89a84;
+        transform: scale(1.08);
+      }
+
       /* Scroll-reveal: default to fully visible so the page works with JS disabled */
       .reveal {
         opacity: 1;
@@ -1552,6 +1588,17 @@
           padding: 9px 12px;
         }
 
+        .lang-switch {
+          margin-left: 4px;
+          padding-left: 4px;
+        }
+
+        .lang-btn {
+          width: 24px;
+          height: 24px;
+          font-size: 13px;
+        }
+
         .name-hero-inner {
           padding-block: 0 56px;
         }
@@ -1701,19 +1748,30 @@
           <span class="wordmark-name">Paulina Torres Martínez</span>
         </a>
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#journey">Career</a>
-          <a href="#career-development">Career Development</a>
-          <a href="#certifications">Certifications</a>
-          <a href="#races">Races</a>
-          <a href="#writing">Writing</a>
-          <a href="#interests">Interests</a>
+          <a href="#about" data-i18n="nav.about">About</a>
+          <a href="#journey" data-i18n="nav.career">Career</a>
+          <a href="#career-development" data-i18n="nav.careerDevelopment">Career Development</a>
+          <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
+          <a href="#races" data-i18n="nav.races">Races</a>
+          <a href="#writing" data-i18n="nav.writing">Writing</a>
+          <a href="#interests" data-i18n="nav.interests">Interests</a>
           <a
             class="nav-contact"
             href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/"
             target="_blank"
             rel="noopener noreferrer"
-          >LinkedIn <span aria-hidden="true">↗</span></a>
+          ><span data-i18n="nav.linkedin">LinkedIn</span> <span aria-hidden="true">↗</span></a>
+          <div class="lang-switch" role="group" aria-label="Choose language">
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="true" aria-label="English">
+              <span aria-hidden="true">🇺🇸</span>
+            </button>
+            <button type="button" class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">
+              <span aria-hidden="true">🇪🇸</span>
+            </button>
+            <button type="button" class="lang-btn" data-lang="de" aria-pressed="false" aria-label="Deutsch">
+              <span aria-hidden="true">🇩🇪</span>
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -1798,11 +1856,11 @@
             </div>
 
             <div class="hero-flanks">
-              <span>Turning data</span>
-              <span>into decisions</span>
+              <span data-i18n="hero.flank1">Turning data</span>
+              <span data-i18n="hero.flank2">into decisions</span>
             </div>
 
-            <p class="hero-mission">
+            <p class="hero-mission" data-i18n="hero.mission">
               Hi, I'm Paulina — a Finance &amp; Accounting graduate (LSU) now
               pursuing my M.S. in Business Analytics at Babson College. I
               pair financial rigor with analytical thinking to help
@@ -1810,21 +1868,21 @@
             </p>
 
             <div class="tag-row hero-focus">
-              <span class="tag">Financial Analysis</span>
-              <span class="tag">Business Analytics</span>
-              <span class="tag">Credit &amp; Market Research</span>
-              <span class="tag">CPA Candidate</span>
-              <span class="tag">Trilingual · EN/ES/DE</span>
+              <span class="tag" data-i18n="tag.financialAnalysis">Financial Analysis</span>
+              <span class="tag" data-i18n="tag.businessAnalytics">Business Analytics</span>
+              <span class="tag" data-i18n="tag.creditMarketResearch">Credit &amp; Market Research</span>
+              <span class="tag" data-i18n="tag.cpaCandidate">CPA Candidate</span>
+              <span class="tag" data-i18n="tag.trilingual">Trilingual · EN/ES/DE</span>
             </div>
 
             <div class="open-chip">
               <span class="chip-dot"></span>
-              Open to opportunities
+              <span data-i18n="hero.openChip">Open to opportunities</span>
             </div>
 
             <div class="hero-actions">
               <a class="button" href="#about">
-                Get to know me
+                <span data-i18n="hero.ctaButton">Get to know me</span>
                 <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
                   <path d="M3 8h9M8 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -1835,17 +1893,17 @@
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Find me on LinkedIn <span aria-hidden="true">↗</span>
+                <span data-i18n="hero.linkedinLink">Find me on LinkedIn</span> <span aria-hidden="true">↗</span>
               </a>
             </div>
 
             <div class="press-row">
-              <span class="press-label">A few quick facts</span>
+              <span class="press-label" data-i18n="hero.pressLabel">A few quick facts</span>
               <div class="press-items">
-                <span>2 Degrees · LSU &amp; Babson</span>
-                <span>3 Languages · EN, ES &amp; DE</span>
-                <span>CPA Candidate</span>
-                <span>70.3 · Ironman in Training</span>
+                <span data-i18n="hero.press1">2 Degrees · LSU &amp; Babson</span>
+                <span data-i18n="hero.press2">3 Languages · EN, ES &amp; DE</span>
+                <span data-i18n="tag.cpaCandidate">CPA Candidate</span>
+                <span data-i18n="hero.press4">70.3 · Ironman in Training</span>
               </div>
             </div>
           </div>
@@ -1870,11 +1928,11 @@
             </figure>
 
             <div class="identity-words">
-              <span>Analyst</span>
-              <span>Researcher</span>
-              <span>Strategist</span>
-              <span>Athlete</span>
-              <span>Future CPA</span>
+              <span data-i18n="identity.analyst">Analyst</span>
+              <span data-i18n="identity.researcher">Researcher</span>
+              <span data-i18n="identity.strategist">Strategist</span>
+              <span data-i18n="identity.athlete">Athlete</span>
+              <span data-i18n="identity.futureCpa">Future CPA</span>
             </div>
 
             <figure class="identity-photo identity-photo--right" aria-label="Photo placeholder">
@@ -1903,12 +1961,12 @@
                 <circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.4"/>
                 <path d="M4.5 20c1.4-4 4.2-6 7.5-6s6.1 2 7.5 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
               </svg>
-              01 / A little introduction
+              <span data-i18n="about.label">01 / A little introduction</span>
             </div>
-            <h2 id="about-title" class="display-heading">More than a<br><span class="line-accent">headline</span></h2>
+            <h2 id="about-title" class="display-heading"><span data-i18n="about.heading1">More than a</span><br><span class="line-accent" data-i18n="about.heading2">headline</span></h2>
           </div>
           <div class="about-copy">
-            <p>
+            <p data-i18n="about.p1">
               I'm Paulina Torres Martínez — a Finance &amp; Accounting
               graduate from Louisiana State University, now pursuing my
               M.S. in Business Analytics at Babson College, where I'm
@@ -1916,7 +1974,7 @@
               always been fascinated by what drives performance, and how
               data can be used to improve it.
             </p>
-            <p>
+            <p data-i18n="about.p2">
               My academic and professional experience spans financial
               analysis, accounting, credit assessment, and market research —
               work that's sharpened my ability to read complex information,
@@ -1926,7 +1984,7 @@
               from Guatemala, which has shaped how I adapt, communicate, and
               think across cultures.
             </p>
-            <p>
+            <p data-i18n="about.p3">
               That same performance mindset carries into my life outside of
               work, from practicing karate to training for Ironman 70.3
               triathlons. Ultimately, I'm drawn to the story behind the
@@ -1969,10 +2027,10 @@
                 <path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5" stroke="currentColor" stroke-width="1.4"/>
                 <path d="M3.5 12.5h17" stroke="currentColor" stroke-width="1.4"/>
               </svg>
-              02 / Work &amp; milestones
+              <span data-i18n="journey.label">02 / Work &amp; milestones</span>
             </div>
-            <h2 id="journey-title" class="display-heading">The journey<br><span class="line-accent">so far</span></h2>
-            <p>
+            <h2 id="journey-title" class="display-heading"><span data-i18n="journey.heading1">The journey</span><br><span class="line-accent" data-i18n="journey.heading2">so far</span></h2>
+            <p data-i18n="journey.p1">
               From financial analysis and credit assessment to market
               research, each role has sharpened how I read data and make
               decisions. For the full picture — roles, coursework, and the
@@ -1980,9 +2038,9 @@
             </p>
           </div>
           <aside class="profile-card" aria-label="Professional profile">
-            <div class="card-index">A SNAPSHOT OF MY PROFESSIONAL STORY</div>
-            <h3>Let's connect.</h3>
-            <p>
+            <div class="card-index" data-i18n="journey.cardIndex">A SNAPSHOT OF MY PROFESSIONAL STORY</div>
+            <h3 data-i18n="journey.cardHeading">Let's connect.</h3>
+            <p data-i18n="journey.cardCopy">
               Explore my experience, follow along with my work, and say hello
               over on LinkedIn.
             </p>
@@ -1992,7 +2050,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              Visit my profile <span aria-hidden="true">↗</span>
+              <span data-i18n="journey.cardLink">Visit my profile</span> <span aria-hidden="true">↗</span>
             </a>
           </aside>
           </div>
@@ -2027,24 +2085,24 @@
                 <path d="M3.5 17 9.5 11l4 4 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M16.5 8h4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-              03 / Always leveling up
+              <span data-i18n="careerDev.label">03 / Always leveling up</span>
             </div>
-            <h2 id="career-development-title">Career<br>development.</h2>
-            <p>
+            <h2 id="career-development-title"><span data-i18n="careerDev.heading1">Career</span><br><span data-i18n="careerDev.heading2">development.</span></h2>
+            <p data-i18n="careerDev.p1">
               Finance is my foundation; data and analytics are how I keep
               building on it. Right now, I'm sharpening:
             </p>
             <div class="tag-row career-focus">
-              <span class="tag">Financial Modeling</span>
-              <span class="tag">Business Analytics</span>
-              <span class="tag">CPA Exam Prep</span>
-              <span class="tag">Data-Driven Strategy</span>
+              <span class="tag" data-i18n="tag.financialModeling">Financial Modeling</span>
+              <span class="tag" data-i18n="tag.businessAnalytics">Business Analytics</span>
+              <span class="tag" data-i18n="tag.cpaExamPrep">CPA Exam Prep</span>
+              <span class="tag" data-i18n="tag.dataDrivenStrategy">Data-Driven Strategy</span>
             </div>
           </div>
           <aside class="profile-card" aria-label="Career development">
-            <div class="card-index">WHERE THE FULL STORY LIVES</div>
-            <h3>Everything's on LinkedIn.</h3>
-            <p>
+            <div class="card-index" data-i18n="careerDev.cardIndex">WHERE THE FULL STORY LIVES</div>
+            <h3 data-i18n="careerDev.cardHeading">Everything's on LinkedIn.</h3>
+            <p data-i18n="careerDev.cardCopy">
               Coursework, credentials, and career milestones are kept current
               over on LinkedIn — it's the best place to see where I've been
               and where I'm headed next.
@@ -2055,7 +2113,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              See my career development <span aria-hidden="true">↗</span>
+              <span data-i18n="careerDev.cardLink">See my career development</span> <span aria-hidden="true">↗</span>
             </a>
           </aside>
         </section>
@@ -2092,11 +2150,11 @@
                   <circle cx="12" cy="9.5" r="5.5" stroke="currentColor" stroke-width="1.4"/>
                   <path d="m9 14.5-1.5 6 4.5-2.5 4.5 2.5-1.5-6" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
                 </svg>
-                04 / Proof of the work
+                <span data-i18n="cert.label">04 / Proof of the work</span>
               </div>
-              <h2 id="certifications-title" class="display-heading">Certifications<br><span class="line-accent">&amp; credentials</span></h2>
+              <h2 id="certifications-title" class="display-heading"><span data-i18n="cert.heading1">Certifications</span><br><span class="line-accent" data-i18n="cert.heading2">&amp; credentials</span></h2>
             </div>
-            <p>
+            <p data-i18n="cert.intro">
               A growing shelf of courses and certificates. Add a file to the
               repo and a new card here whenever you earn one.
             </p>
@@ -2106,34 +2164,34 @@
             <div class="cert-card">
               <div class="cert-badge cert-badge--square cert-badge--alteryx" aria-hidden="true">a</div>
               <h3>Alteryx Designer Core Certification</h3>
-              <p class="cert-meta">Alteryx · Issued Mar 2026</p>
-              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+              <p class="cert-meta" data-i18n="cert.alteryxMeta">Alteryx · Issued Mar 2026</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer"><span data-i18n="cert.viewCredential">View credential</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card">
               <div class="cert-badge cert-badge--irs" aria-hidden="true">IRS</div>
               <h3>VITA/TCE Certification</h3>
-              <p class="cert-meta">Internal Revenue Service · Issued Feb 2026</p>
-              <p class="cert-note"><strong>Skills:</strong> Tax Preparation</p>
-              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+              <p class="cert-meta" data-i18n="cert.irsMeta">Internal Revenue Service · Issued Feb 2026</p>
+              <p class="cert-note"><strong data-i18n="cert.skillsLabel">Skills:</strong> <span data-i18n="cert.taxPreparation">Tax Preparation</span></p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer"><span data-i18n="cert.viewCredential">View credential</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card">
               <div class="cert-badge cert-badge--forage" aria-hidden="true">F</div>
               <h3>PwC US – Tax Job Simulation</h3>
-              <p class="cert-meta">Forage · Issued Feb 2026</p>
-              <p class="cert-note"><strong>Credential ID:</strong> wmyMqBsGFivYbMB87</p>
-              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+              <p class="cert-meta" data-i18n="cert.forageMeta">Forage · Issued Feb 2026</p>
+              <p class="cert-note"><strong data-i18n="cert.credentialIdLabel">Credential ID:</strong> wmyMqBsGFivYbMB87</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer"><span data-i18n="cert.viewCredential">View credential</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card">
               <div class="cert-badge cert-badge--square cert-badge--microsoft" aria-hidden="true">
                 <span></span><span></span><span></span><span></span>
               </div>
               <h3>Microsoft Office Specialist: Excel Expert (Excel 2019)</h3>
-              <p class="cert-meta">Microsoft · Issued Oct 2025 · Expires Oct 2030</p>
-              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer">View credential <span aria-hidden="true">↗</span></a>
+              <p class="cert-meta" data-i18n="cert.msMeta">Microsoft · Issued Oct 2025 · Expires Oct 2030</p>
+              <a class="text-link" href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/" target="_blank" rel="noopener noreferrer"><span data-i18n="cert.viewCredential">View credential</span> <span aria-hidden="true">↗</span></a>
             </div>
             <div class="cert-card is-placeholder">
               <span class="cert-plus" aria-hidden="true">+</span>
-              <p>Your next certification goes here</p>
+              <p data-i18n="cert.placeholder">Your next certification goes here</p>
             </div>
           </div>
           </div>
@@ -2166,47 +2224,47 @@
               <path d="M5.5 20V4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
               <path d="M5.5 4.5h9l-2 3.3 2 3.2h-9" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
             </svg>
-            05 / On the move
+            <span data-i18n="races.label">05 / On the move</span>
           </div>
-          <h2 id="races-title">Races<br>I've run.</h2>
-          <p class="script-text races-aside">spreadsheets by day, start lines by weekend</p>
+          <h2 id="races-title"><span data-i18n="races.heading1">Races</span><br><span data-i18n="races.heading2">I've run.</span></h2>
+          <p class="script-text races-aside" data-i18n="races.aside">spreadsheets by day, start lines by weekend</p>
           <div class="finish-line-strip" aria-hidden="true"></div>
 
           <div class="races-stats">
             <div class="stat">
               <strong>7</strong>
-              <span>Races completed</span>
+              <span data-i18n="races.statCompleted">Races completed</span>
             </div>
             <div class="stat">
               <strong>70.3</strong>
-              <span>Favorite distance</span>
+              <span data-i18n="races.statDistance">Favorite distance</span>
             </div>
             <div class="stat">
-              <strong>2nd</strong>
-              <span>Women's overall, El Paredón 70.3</span>
+              <strong data-i18n="races.stat2nd">2nd</strong>
+              <span data-i18n="races.statWomen">Women's overall, El Paredón 70.3</span>
             </div>
           </div>
 
           <div class="races-table" role="table" aria-label="Race results">
             <div class="race-row is-head" role="row">
-              <span role="columnheader">Race</span>
-              <span role="columnheader">Date</span>
-              <span role="columnheader">Distance</span>
+              <span role="columnheader" data-i18n="races.colRace">Race</span>
+              <span role="columnheader" data-i18n="races.colDate">Date</span>
+              <span role="columnheader" data-i18n="races.colDistance">Distance</span>
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
                 5150 Salinas
                 <span class="race-location">Salinas, Ecuador</span>
               </span>
-              <span data-label="Date" role="cell">May 2025</span>
-              <span data-label="Distance" role="cell">Olympic</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.may">May</span> 2025</span>
+              <span data-label="Distance" role="cell" data-i18n="races.olympic">Olympic</span>
             </div>
             <div class="race-row" role="row">
               <span class="race-name" role="cell">
                 Medio Maratón Internacional de Cobán
                 <span class="race-location">Cobán, Guatemala</span>
               </span>
-              <span data-label="Date" role="cell">May 2025</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.may">May</span> 2025</span>
               <span data-label="Distance" role="cell">21K</span>
             </div>
             <div class="race-row" role="row">
@@ -2214,7 +2272,7 @@
                 Chicago Half Marathon
                 <span class="race-location">Chicago, Illinois</span>
               </span>
-              <span data-label="Date" role="cell">September 2025</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.september">September</span> 2025</span>
               <span data-label="Distance" role="cell">13.1 mi</span>
             </div>
             <div class="race-row" role="row">
@@ -2222,7 +2280,7 @@
                 Ironman 70.3 Texas
                 <span class="race-location">Galveston, Texas</span>
               </span>
-              <span data-label="Date" role="cell">March 2026</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.march">March</span> 2026</span>
               <span data-label="Distance" role="cell">70.3</span>
             </div>
             <div class="race-row" role="row">
@@ -2230,7 +2288,7 @@
                 70.3 El Paredón
                 <span class="race-location">Sipacate, Guatemala</span>
               </span>
-              <span data-label="Date" role="cell">July 2026</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.july">July</span> 2026</span>
               <span data-label="Distance" role="cell">70.3</span>
             </div>
             <div class="race-row" role="row">
@@ -2238,7 +2296,7 @@
                 21K Ciudad de Guatemala
                 <span class="race-location">Guatemala City, Guatemala</span>
               </span>
-              <span data-label="Date" role="cell">August 2026</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.august">August</span> 2026</span>
               <span data-label="Distance" role="cell">21K</span>
             </div>
             <div class="race-row" role="row">
@@ -2246,7 +2304,7 @@
                 Marine Corps Marathon
                 <span class="race-location">Washington, D.C.</span>
               </span>
-              <span data-label="Date" role="cell">October 2026</span>
+              <span data-label="Date" role="cell"><span data-i18n="month.october">October</span> 2026</span>
               <span data-label="Distance" role="cell">26.2 mi</span>
             </div>
           </div>
@@ -2276,20 +2334,20 @@
               <path d="m15.5 4.5 4 4L8 20H4v-4L15.5 4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
               <path d="m13 7 4 4" stroke="currentColor" stroke-width="1.4"/>
             </svg>
-            06 / Thoughts, written down
+            <span data-i18n="writing.label">06 / Thoughts, written down</span>
           </div>
-          <h2 id="writing-title" class="display-heading">Notes &amp;<br><span class="line-accent">essays</span></h2>
+          <h2 id="writing-title" class="display-heading"><span data-i18n="writing.heading1">Notes &amp;</span><br><span class="line-accent" data-i18n="writing.heading2">essays</span></h2>
 
           <div class="writing-card">
             <div class="writing-copy">
-              <h3>New chapters, soon.</h3>
-              <p>
+              <h3 data-i18n="writing.cardHeading">New chapters, soon.</h3>
+              <p data-i18n="writing.cardCopy">
                 I'm working on a Substack where I'll share longer-form
                 thoughts, lessons, and stories. Once it's live, this card
                 will link straight there.
               </p>
             </div>
-            <span class="writing-status">Coming soon</span>
+            <span class="writing-status" data-i18n="writing.status">Coming soon</span>
           </div>
           </div>
         </section>
@@ -2317,13 +2375,13 @@
                 <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.4"/>
                 <path d="m14.8 9.2-2 5.6-5.6 2 2-5.6 5.6-2Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
               </svg>
-              07 / Outside the résumé
+              <span data-i18n="interests.label">07 / Outside the résumé</span>
             </div>
-            <h2 id="interests-title">What makes<br>life interesting.</h2>
-            <p class="script-text interests-aside">the other 80% of me</p>
+            <h2 id="interests-title"><span data-i18n="interests.heading1">What makes</span><br><span data-i18n="interests.heading2">life interesting.</span></h2>
+            <p class="script-text interests-aside" data-i18n="interests.aside">the other 80% of me</p>
           </div>
           <div class="interests-note">
-            <p>
+            <p data-i18n="interests.note">
               The best stories are still unfolding. Here's to the people,
               passions, and little discoveries along the way.
             </p>
@@ -2354,15 +2412,270 @@
       <footer class="block-section is-ink">
         <div class="block-inner footer">
           <span>© 2026 Paulina Torres Martínez</span>
-          <span>Finance-minded, data-driven, always building.</span>
+          <span data-i18n="footer.tagline">Finance-minded, data-driven, always building.</span>
           <a
             href="https://www.linkedin.com/in/paulina-torres-mart%C3%ADnez-067047281/"
             target="_blank"
             rel="noopener noreferrer"
-          >Say hello on LinkedIn ↗</a>
+          ><span data-i18n="footer.linkedin">Say hello on LinkedIn</span> ↗</a>
         </div>
       </footer>
     </div>
+
+    <script>
+      // Language switcher: translates every [data-i18n] element between
+      // English (the default markup), Spanish, and German. English text is
+      // captured from the page itself, so only ES/DE need to be listed here.
+      (function () {
+        var translations = {
+          es: {
+            "nav.about": "Sobre mí",
+            "nav.career": "Trayectoria",
+            "nav.careerDevelopment": "Desarrollo profesional",
+            "nav.certifications": "Certificaciones",
+            "nav.races": "Carreras",
+            "nav.writing": "Escritura",
+            "nav.interests": "Intereses",
+            "nav.linkedin": "LinkedIn",
+            "hero.flank1": "Convirtiendo datos",
+            "hero.flank2": "en decisiones",
+            "hero.mission": "Hola, soy Paulina — graduada en Finanzas y Contabilidad (LSU) y actualmente cursando mi maestría en Business Analytics en Babson College. Combino el rigor financiero con el pensamiento analítico para ayudar a las empresas a tomar decisiones más inteligentes y rápidas.",
+            "hero.openChip": "Abierta a nuevas oportunidades",
+            "hero.ctaButton": "Conóceme mejor",
+            "hero.linkedinLink": "Encuéntrame en LinkedIn",
+            "hero.pressLabel": "Algunos datos rápidos",
+            "hero.press1": "2 títulos · LSU y Babson",
+            "hero.press2": "3 idiomas · EN, ES y DE",
+            "hero.press4": "70.3 · Entrenando para Ironman",
+            "tag.financialAnalysis": "Análisis Financiero",
+            "tag.creditMarketResearch": "Crédito e Investigación de Mercado",
+            "tag.cpaCandidate": "Candidata a CPA",
+            "tag.trilingual": "Trilingüe · EN/ES/DE",
+            "tag.financialModeling": "Modelado Financiero",
+            "tag.cpaExamPrep": "Preparación examen CPA",
+            "tag.dataDrivenStrategy": "Estrategia basada en datos",
+            "identity.analyst": "Analista",
+            "identity.researcher": "Investigadora",
+            "identity.strategist": "Estratega",
+            "identity.athlete": "Atleta",
+            "identity.futureCpa": "Futura CPA",
+            "about.label": "01 / Una pequeña introducción",
+            "about.heading1": "Más que un",
+            "about.heading2": "titular",
+            "about.p1": "Soy Paulina Torres Martínez — graduada en Finanzas y Contabilidad por Louisiana State University, y actualmente curso mi maestría en Business Analytics en Babson College, donde sigo construyendo sobre esa base con datos, estrategia e inteligencia artificial. Siempre me ha fascinado lo que impulsa el rendimiento y cómo los datos pueden usarse para mejorarlo.",
+            "about.p2": "Mi experiencia académica y profesional abarca análisis financiero, contabilidad, evaluación crediticia e investigación de mercado — un trabajo que ha perfeccionado mi capacidad para interpretar información compleja, identificar patrones significativos y traducir datos en información que respalda buenas decisiones de negocio. Soy candidata a CPA, hablo con fluidez inglés, español y alemán, y soy estudiante internacional de Guatemala, lo cual ha moldeado la forma en que me adapto, me comunico y pienso entre culturas.",
+            "about.p3": "Esa misma mentalidad de rendimiento se extiende a mi vida fuera del trabajo, desde practicar karate hasta entrenar para triatlones Ironman 70.3. En definitiva, me atrae la historia detrás de los datos — y los roles en finanzas, banca, inversión y consultoría donde puedo convertir esa información en acciones significativas.",
+            "journey.label": "02 / Trabajo y logros",
+            "journey.heading1": "El camino",
+            "journey.heading2": "hasta ahora",
+            "journey.p1": "Desde el análisis financiero y la evaluación crediticia hasta la investigación de mercado, cada rol ha perfeccionado mi forma de leer datos y tomar decisiones. Para ver el panorama completo — roles, cursos y las personas con las que he trabajado — todo está en mi LinkedIn.",
+            "journey.cardIndex": "UN VISTAZO A MI TRAYECTORIA PROFESIONAL",
+            "journey.cardHeading": "Conectemos.",
+            "journey.cardCopy": "Explora mi experiencia, sigue mi trabajo y salúdame en LinkedIn.",
+            "journey.cardLink": "Visita mi perfil",
+            "careerDev.label": "03 / Siempre mejorando",
+            "careerDev.heading1": "Desarrollo",
+            "careerDev.heading2": "profesional.",
+            "careerDev.p1": "Las finanzas son mi base; los datos y la analítica son cómo sigo construyendo sobre ella. Ahora mismo, estoy perfeccionando:",
+            "careerDev.cardIndex": "DONDE ESTÁ TODA LA HISTORIA",
+            "careerDev.cardHeading": "Todo está en LinkedIn.",
+            "careerDev.cardCopy": "Los cursos, credenciales e hitos profesionales se mantienen actualizados en LinkedIn — es el mejor lugar para ver dónde he estado y hacia dónde voy.",
+            "careerDev.cardLink": "Ver mi desarrollo profesional",
+            "cert.label": "04 / Prueba del trabajo",
+            "cert.heading1": "Certificaciones",
+            "cert.heading2": "y credenciales",
+            "cert.intro": "Una colección creciente de cursos y certificados. Se añade un archivo al repositorio y una nueva tarjeta aquí cada vez que obtengo uno.",
+            "cert.alteryxMeta": "Alteryx · Emitida en marzo de 2026",
+            "cert.irsMeta": "Internal Revenue Service · Emitida en febrero de 2026",
+            "cert.forageMeta": "Forage · Emitida en febrero de 2026",
+            "cert.msMeta": "Microsoft · Emitida en octubre de 2025 · Vence en octubre de 2030",
+            "cert.skillsLabel": "Habilidades:",
+            "cert.taxPreparation": "Preparación de impuestos",
+            "cert.credentialIdLabel": "ID de credencial:",
+            "cert.viewCredential": "Ver credencial",
+            "cert.placeholder": "Tu próxima certificación va aquí",
+            "races.label": "05 / En movimiento",
+            "races.heading1": "Carreras",
+            "races.heading2": "que he corrido.",
+            "races.aside": "hojas de cálculo entre semana, líneas de salida el fin de semana",
+            "races.statCompleted": "Carreras completadas",
+            "races.statDistance": "Distancia favorita",
+            "races.stat2nd": "2.º",
+            "races.statWomen": "General femenil, El Paredón 70.3",
+            "races.colRace": "Carrera",
+            "races.colDate": "Fecha",
+            "races.colDistance": "Distancia",
+            "races.olympic": "Olímpico",
+            "month.may": "mayo",
+            "month.september": "septiembre",
+            "month.march": "marzo",
+            "month.july": "julio",
+            "month.august": "agosto",
+            "month.october": "octubre",
+            "writing.label": "06 / Pensamientos por escrito",
+            "writing.heading1": "Notas y",
+            "writing.heading2": "ensayos",
+            "writing.cardHeading": "Nuevos capítulos, pronto.",
+            "writing.cardCopy": "Estoy trabajando en un Substack donde compartiré reflexiones, aprendizajes e historias más extensas. En cuanto esté activo, esta tarjeta enlazará directamente ahí.",
+            "writing.status": "Próximamente",
+            "interests.label": "07 / Más allá del currículum",
+            "interests.heading1": "Lo que hace",
+            "interests.heading2": "la vida interesante.",
+            "interests.aside": "el otro 80% de mí",
+            "interests.note": "Las mejores historias todavía se están escribiendo. Un brindis por las personas, las pasiones y los pequeños descubrimientos en el camino.",
+            "footer.tagline": "Mentalidad financiera, impulsada por datos, siempre construyendo.",
+            "footer.linkedin": "Salúdame en LinkedIn"
+          },
+          de: {
+            "nav.about": "Über mich",
+            "nav.career": "Werdegang",
+            "nav.careerDevelopment": "Berufliche Entwicklung",
+            "nav.certifications": "Zertifizierungen",
+            "nav.races": "Rennen",
+            "nav.writing": "Schreiben",
+            "nav.interests": "Interessen",
+            "nav.linkedin": "LinkedIn",
+            "hero.flank1": "Daten verwandeln",
+            "hero.flank2": "in Entscheidungen",
+            "hero.mission": "Hallo, ich bin Paulina — Absolventin der Finanz- und Rechnungswesen-Studiengänge (LSU) und derzeit im M.S.-Programm Business Analytics am Babson College. Ich verbinde finanzielle Präzision mit analytischem Denken, um Unternehmen zu helfen, klügere und schnellere Entscheidungen zu treffen.",
+            "hero.openChip": "Offen für neue Möglichkeiten",
+            "hero.ctaButton": "Mehr über mich",
+            "hero.linkedinLink": "Finde mich auf LinkedIn",
+            "hero.pressLabel": "Ein paar schnelle Fakten",
+            "hero.press1": "2 Abschlüsse · LSU & Babson",
+            "hero.press2": "3 Sprachen · EN, ES & DE",
+            "hero.press4": "70.3 · Ironman-Training",
+            "tag.financialAnalysis": "Finanzanalyse",
+            "tag.creditMarketResearch": "Kredit- & Marktforschung",
+            "tag.cpaCandidate": "CPA-Kandidatin",
+            "tag.trilingual": "Dreisprachig · EN/ES/DE",
+            "tag.financialModeling": "Finanzmodellierung",
+            "tag.cpaExamPrep": "CPA-Prüfungsvorbereitung",
+            "tag.dataDrivenStrategy": "Datengetriebene Strategie",
+            "identity.analyst": "Analystin",
+            "identity.researcher": "Forscherin",
+            "identity.strategist": "Strategin",
+            "identity.athlete": "Athletin",
+            "identity.futureCpa": "Zukünftige CPA",
+            "about.label": "01 / Eine kleine Einführung",
+            "about.heading1": "Mehr als nur eine",
+            "about.heading2": "Überschrift",
+            "about.p1": "Ich bin Paulina Torres Martínez — Absolventin der Finanz- und Rechnungswesen-Studiengänge an der Louisiana State University und studiere derzeit im M.S.-Programm Business Analytics am Babson College, wo ich dieses Fundament mit Daten, Strategie und KI weiter ausbaue. Mich hat schon immer fasziniert, was Leistung antreibt und wie Daten genutzt werden können, um sie zu verbessern.",
+            "about.p2": "Meine akademische und berufliche Erfahrung umfasst Finanzanalyse, Rechnungswesen, Kreditbewertung und Marktforschung — eine Arbeit, die meine Fähigkeit geschärft hat, komplexe Informationen zu lesen, bedeutsame Muster zu erkennen und Daten in Erkenntnisse zu übersetzen, die fundierte Geschäftsentscheidungen unterstützen. Ich bin CPA-Kandidatin, spreche fließend Englisch, Spanisch und Deutsch und bin internationale Studentin aus Guatemala — das hat geprägt, wie ich mich anpasse, kommuniziere und kulturübergreifend denke.",
+            "about.p3": "Dieselbe Leistungsmentalität zieht sich auch durch mein Leben abseits der Arbeit, vom Karatetraining bis zum Training für Ironman-70.3-Triathlons. Letztlich interessiert mich die Geschichte hinter den Daten — und Rollen in den Bereichen Finanzen, Banking, Investment und Beratung, in denen ich diese Erkenntnisse in sinnvolles Handeln umsetzen kann.",
+            "journey.label": "02 / Arbeit & Meilensteine",
+            "journey.heading1": "Der Weg",
+            "journey.heading2": "bisher",
+            "journey.p1": "Von Finanzanalyse und Kreditbewertung bis hin zu Marktforschung hat jede Rolle geschärft, wie ich Daten lese und Entscheidungen treffe. Das vollständige Bild — Rollen, Kurse und die Menschen, mit denen ich gearbeitet habe — findest du auf meinem LinkedIn-Profil.",
+            "journey.cardIndex": "EIN EINBLICK IN MEINE BERUFLICHE GESCHICHTE",
+            "journey.cardHeading": "Lass uns vernetzen.",
+            "journey.cardCopy": "Entdecke meine Erfahrung, verfolge meine Arbeit und sag Hallo auf LinkedIn.",
+            "journey.cardLink": "Besuche mein Profil",
+            "careerDev.label": "03 / Immer am Wachsen",
+            "careerDev.heading1": "Berufliche",
+            "careerDev.heading2": "Entwicklung.",
+            "careerDev.p1": "Finanzen sind mein Fundament; mit Daten und Analytik baue ich darauf weiter auf. Im Moment vertiefe ich:",
+            "careerDev.cardIndex": "WO DIE GANZE GESCHICHTE ZU FINDEN IST",
+            "careerDev.cardHeading": "Alles auf LinkedIn.",
+            "careerDev.cardCopy": "Kurse, Zertifikate und berufliche Meilensteine halte ich auf LinkedIn aktuell — dort siehst du am besten, wo ich war und wohin ich als Nächstes gehe.",
+            "careerDev.cardLink": "Meine berufliche Entwicklung ansehen",
+            "cert.label": "04 / Beleg der Arbeit",
+            "cert.heading1": "Zertifizierungen",
+            "cert.heading2": "& Nachweise",
+            "cert.intro": "Eine wachsende Sammlung von Kursen und Zertifikaten. Jedes Mal, wenn ich eines erwerbe, kommt eine Datei ins Repository und eine neue Karte hier dazu.",
+            "cert.alteryxMeta": "Alteryx · Ausgestellt im März 2026",
+            "cert.irsMeta": "Internal Revenue Service · Ausgestellt im Februar 2026",
+            "cert.forageMeta": "Forage · Ausgestellt im Februar 2026",
+            "cert.msMeta": "Microsoft · Ausgestellt im Oktober 2025 · Gültig bis Oktober 2030",
+            "cert.skillsLabel": "Fähigkeiten:",
+            "cert.taxPreparation": "Steuervorbereitung",
+            "cert.credentialIdLabel": "Zertifikats-ID:",
+            "cert.viewCredential": "Zertifikat ansehen",
+            "cert.placeholder": "Deine nächste Zertifizierung kommt hierhin",
+            "races.label": "05 / Unterwegs",
+            "races.heading1": "Rennen,",
+            "races.heading2": "die ich gelaufen bin.",
+            "races.aside": "wochentags Tabellenkalkulationen, am Wochenende Startlinien",
+            "races.statCompleted": "Absolvierte Rennen",
+            "races.statDistance": "Lieblingsdistanz",
+            "races.stat2nd": "2.",
+            "races.statWomen": "Gesamtwertung Frauen, El Paredón 70.3",
+            "races.colRace": "Rennen",
+            "races.colDate": "Datum",
+            "races.colDistance": "Distanz",
+            "races.olympic": "Olympisch",
+            "month.may": "Mai",
+            "month.september": "September",
+            "month.march": "März",
+            "month.july": "Juli",
+            "month.august": "August",
+            "month.october": "Oktober",
+            "writing.label": "06 / Gedanken, festgehalten",
+            "writing.heading1": "Notizen &",
+            "writing.heading2": "Essays",
+            "writing.cardHeading": "Neue Kapitel, bald.",
+            "writing.cardCopy": "Ich arbeite an einem Substack, auf dem ich längere Gedanken, Lektionen und Geschichten teilen werde. Sobald er online ist, verlinkt diese Karte direkt dorthin.",
+            "writing.status": "Demnächst",
+            "interests.label": "07 / Abseits des Lebenslaufs",
+            "interests.heading1": "Was das Leben",
+            "interests.heading2": "interessant macht.",
+            "interests.aside": "die anderen 80 % von mir",
+            "interests.note": "Die besten Geschichten entfalten sich noch. Auf die Menschen, Leidenschaften und kleinen Entdeckungen unterwegs.",
+            "footer.tagline": "Finanzorientiert, datengetrieben, immer im Aufbau.",
+            "footer.linkedin": "Sag Hallo auf LinkedIn"
+          }
+        };
+
+        var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-i18n]"));
+        var originals = nodes.map(function (el) {
+          return el.innerHTML;
+        });
+        var langButtons = Array.prototype.slice.call(document.querySelectorAll(".lang-btn"));
+
+        function applyLanguage(lang) {
+          nodes.forEach(function (el, i) {
+            var key = el.getAttribute("data-i18n");
+            if (lang === "en") {
+              el.innerHTML = originals[i];
+            } else if (translations[lang] && translations[lang][key] !== undefined) {
+              el.innerHTML = translations[lang][key];
+            }
+          });
+
+          document.documentElement.setAttribute("lang", lang);
+
+          langButtons.forEach(function (btn) {
+            var isActive = btn.getAttribute("data-lang") === lang;
+            btn.classList.toggle("is-active", isActive);
+            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+
+          try {
+            localStorage.setItem("site-lang", lang);
+          } catch (e) {
+            /* localStorage unavailable (e.g. private browsing) — ignore */
+          }
+        }
+
+        langButtons.forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            applyLanguage(btn.getAttribute("data-lang"));
+          });
+        });
+
+        var savedLang = "en";
+        try {
+          var stored = localStorage.getItem("site-lang");
+          if (stored === "es" || stored === "de" || stored === "en") {
+            savedLang = stored;
+          }
+        } catch (e) {
+          /* localStorage unavailable — fall back to English */
+        }
+
+        applyLanguage(savedLang);
+      })();
+    </script>
 
     <script>
       // Progressive-enhancement scroll reveal: elements start visible for
